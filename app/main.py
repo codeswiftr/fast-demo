@@ -14,3 +14,7 @@ def read_root():
 @app.get("/ping")
 def pong():
     return {"ping": "pong"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
