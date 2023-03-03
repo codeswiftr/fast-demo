@@ -47,7 +47,7 @@ COPY --from=build --chown=appuser:appuser /app /app
 # Install the dependencies from wheels
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/* /wheels/* \
     && apt update && apt install -y netcat 
-    
+
 # Expose the port that the application will run on
 EXPOSE 8000
 
@@ -65,10 +65,10 @@ USER appuser
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]  
 
 # Add healthcheck
-HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-    CMD ["curl", "-f", "http://localhost:8000/health"]
+# HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+#     CMD ["curl", "-f", "http://localhost:8000/health"]
 
 # Add metadata to the image
 LABEL maintainer="Bogdan Veliscu" \
-      version="1.0" \
-      description="FastAPI Application with Poetry and Alpine image"
+    version="1.0" \
+    description="FastAPI Application with Poetry and Alpine image"

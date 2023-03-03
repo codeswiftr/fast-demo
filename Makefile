@@ -1,6 +1,8 @@
+include .env
 IMAGE_NAME = $(shell basename "`pwd`")
 IMAGE_TAG = $(shell poetry version -s)
-IMAGE = $(IMAGE_NAME):$(IMAGE_TAG)
+REGISTRY = $(shell echo $(REGISTRY_HOST))
+IMAGE = $(REGISTRY)/$(IMAGE_NAME):$(IMAGE_TAG)
 
 .PHONY: help
 
@@ -30,6 +32,7 @@ build: ## Build the Docker image
 	docker build -t $(IMAGE) .
 
 push: ## Push the image to a registry
+	docker login $(REGISTRY_HOST) -u $(REGISTRY_USERNAME) -p $(REGISTRY_PASSWORD)
 	docker push $(IMAGE)
 
 bump_version: ## Bump the version in pyproject.toml
