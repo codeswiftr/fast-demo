@@ -1,4 +1,8 @@
-include .env
+ifneq (,$(wildcard ./.env))
+	include .env
+	export
+endif
+
 IMAGE_NAME = $(shell basename "`pwd`")
 IMAGE_TAG = $(shell poetry version -s)
 REGISTRY = $(shell echo $(REGISTRY_HOST))
