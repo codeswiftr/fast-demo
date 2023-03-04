@@ -1,5 +1,9 @@
 name: Docker Image CI
 
+env:
+  REGISTRY_HOST: ${{ secrets.REGISTRY_HOST }}
+  
+
 on:
   push:
     branches: [ "main" ]
