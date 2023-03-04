@@ -1,7 +1,9 @@
 name: Docker Image CI
 
 env:
-  REGISTRY_HOST: ${{ secrets.REGISTRY_HOST }}
+  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+  REGISTRY_USERNAME: ${{ vars.REGISTRY_USERNAME }}
+  REGISTRY_HOST: ${{ vars.REGISTRY_HOST }}
   
 
 on:
