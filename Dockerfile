@@ -55,7 +55,7 @@ EXPOSE 8000
 ENV DATABASE_URL postgresql://user:password@postgres:5432/db
 ENV HOST 0.0.0.0
 ENV PORT 8000
-ENV GREETING Hello, World!
+ENV GREETMESSAGEING Hello, World!
 
 # Run the application as the non-root user
 USER appuser

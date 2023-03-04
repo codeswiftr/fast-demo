@@ -29,7 +29,7 @@ clean: ## Clean up the containers and files
 	rm -f *.log
 
 build: ## Build the Docker image
-	docker build -t $(IMAGE) .
+	docker buildx build --platform linux/amd64 -t $(IMAGE) --load .
 
 push: ## Push the image to a registry
 	docker login $(REGISTRY_HOST) -u $(REGISTRY_USERNAME) -p $(REGISTRY_PASSWORD)

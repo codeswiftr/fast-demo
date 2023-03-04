@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": os.getenv('GREETING', "World")}
+    return {"Message": os.getenv('MESSAGE', "Hello World!")}
 
 
 @app.get("/ping")
