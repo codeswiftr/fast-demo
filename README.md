@@ -1,5 +1,4 @@
 Set up your development environment:
-Install Docker and Docker Compose on your machine.
 Set up a Postgres database instance using Docker Compose.
 Install the necessary Python packages: FastAPI, SQLAlchemy, Pytest, and any other dependencies.
 Define your database schema:
@@ -23,6 +22,14 @@ Set up a CI/CD pipeline to automate the build, test, and deployment process.
 
 # Prerequisites
 
-- Make sure to have AZURE CLI installed and logged in. You can find the installation instructions [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Make sure to have KUBECTL installed. You can find the installation instructions [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-- Make sure to have HELM installed. You can find the installation instructions [here](https://helm.sh/docs/intro/install/).
+- Install Docker and Docker Compose on your machine.
+- Make sure you have properly configured the .env file
+
+# Build images
+```bash
+make build
+```
+
+```bash
+make push
+```
